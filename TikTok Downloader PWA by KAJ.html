@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0c0d">
+<link rel="manifest" href="manifest.json">
+<title>TikTok Downloader by KAJ</title>
+<link rel="icon" href="https://files.catbox.moe/31tzqx.png">
+<style>
+:root{--bg:#0e0c0d;--surface:#171415;--raised:#211d1e;--gold:#d4af6a;--gold-light:#f3d796;--text:#f5f2eb;--muted:#a8a096;--line:rgba(212,175,106,.17);--danger:#ff8f8f;--green:#9cdbb0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,rgba(212,175,106,.12),transparent 42%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;line-height:1.55}
+a{color:inherit;text-decoration:none}button,input{font:inherit}.topbar{height:70px;border-bottom:1px solid var(--line);background:rgba(14,12,13,.82);backdrop-filter:blur(14px);position:sticky;top:0;z-index:5}.nav{max-width:1060px;height:100%;padding:0 22px;margin:auto;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em}.brand img{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);object-fit:cover}.brand span{background:linear-gradient(120deg,var(--gold-light),var(--gold));background-clip:text;color:transparent}.nav-note{font-size:.82rem;color:var(--muted)}.install-btn{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(212,175,106,.22);border-radius:10px;background:rgba(212,175,106,.1);color:var(--gold-light);cursor:pointer;transition:.22s}.install-btn:hover{background:rgba(212,175,106,.2);transform:translateY(-2px)}.install-btn svg{width:19px;height:19px}.install-btn:active{transform:scale(.97)}.install-btn[hidden]{display:none}main{max-width:900px;margin:auto;padding:66px 22px 70px}.hero{text-align:center;margin:0 auto 34px;max-width:680px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(212,175,106,.07);color:var(--gold-light);border-radius:99px;padding:6px 13px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:#9cdbb0;box-shadow:0 0 12px #9cdbb0}.hero h1{font-size:clamp(2.15rem,6vw,3.5rem);letter-spacing:-.055em;line-height:1.08;margin:20px 0 13px}.hero h1 span{background:linear-gradient(120deg,#fff1c9,var(--gold),#a87e38);background-clip:text;color:transparent}.hero p{margin:0;color:var(--muted);font-size:1rem}.platforms{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:25px 0 35px}.platform{font-size:.75rem;color:#c9c0b3;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:99px;padding:6px 11px}.panel{background:linear-gradient(145deg,rgba(33,29,30,.96),rgba(23,20,21,.96));border:1px solid var(--line);border-radius:23px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.28)}.field-label{display:block;color:#ded6c9;font-weight:650;font-size:.88rem;margin-bottom:10px}.input-wrap{display:flex;gap:10px}.url-input{min-width:0;flex:1;border:1px solid rgba(212,175,106,.22);background:#100e0f;color:var(--text);border-radius:13px;padding:15px 16px;outline:none;transition:.2s}.url-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,106,.1)}.link-tools{display:flex;align-items:center;gap:6px;border:1px solid rgba(212,175,106,.22);background:#100e0f;border-radius:13px;padding:0 8px}.link-tools .url-input{border:0;background:transparent;box-shadow:none;padding:15px 8px}.link-tools .url-input:focus{box-shadow:none}.link-icon{width:36px;height:36px;display:grid;place-items:center;border:0;border-radius:9px;background:rgba(212,175,106,.1);color:var(--gold-light);cursor:pointer}.link-icon:hover{background:rgba(212,175,106,.2)}.link-icon svg{width:18px;height:18px}.link-icon.hidden{display:none}.url-input::placeholder{color:#716a62}.primary{border:0;border-radius:13px;padding:0 23px;font-weight:800;color:#17120b;background:linear-gradient(135deg,#c9b58a,#aa9468);cursor:pointer;transition:transform .2s,filter .2s;white-space:nowrap}.primary:hover{transform:translateY(-2px);filter:brightness(1.06)}.primary:disabled{opacity:.6;cursor:wait;transform:none}.hint{color:#81796f;font-size:.76rem;margin:10px 2px 0}.status{display:none;margin-top:16px;padding:12px 14px;border-radius:12px;font-size:.86rem;background:rgba(212,175,106,.08);border:1px solid var(--line);color:var(--gold-light)}.status.show{display:block}.status.error{color:var(--danger);border-color:rgba(255,143,143,.25);background:rgba(255,80,80,.06)}.status.ok{color:var(--green);border-color:rgba(156,219,176,.25);background:rgba(80,200,120,.06)}.loader{display:inline-block;width:13px;height:13px;border:2px solid rgba(20,15,8,.3);border-top-color:#17120b;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:7px}@keyframes spin{to{transform:rotate(360deg)}}.result{display:none;margin-top:24px;animation:rise .45s ease both}.result.show{display:block}@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}.result-head{display:flex;gap:15px;align-items:center;margin-bottom:17px}.thumb{width:74px;height:88px;border-radius:12px;object-fit:cover;background:#100e0f;border:1px solid var(--line)}.meta{min-width:0;flex:1}.meta h2{font-size:1.05rem;margin:0 0 4px;overflow-wrap:anywhere}.meta p{margin:0;color:var(--muted);font-size:.83rem}.source{display:inline-block;color:var(--gold-light);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}.media-title{font-size:.9rem;margin:20px 0 11px}.preview-video{width:100%;max-height:430px;background:#080708;border-radius:15px;border:1px solid var(--line)}.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:10px}.gallery-item{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:#100e0f;border:1px solid var(--line)}.gallery-item img{width:100%;height:100%;object-fit:cover;display:block}.gallery-item a{position:absolute;inset:auto 6px 6px;background:rgba(12,10,10,.86);color:var(--gold-light);font-size:.7rem;text-align:center;border-radius:7px;padding:6px}.media-list{display:grid;gap:9px}.media-row{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(0,0,0,.15)}.media-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:rgba(212,175,106,.1);color:var(--gold-light);font-weight:800}.media-info{min-width:0;flex:1}.media-info strong{display:block;font-size:.84rem}.media-info small{display:block;color:var(--muted);font-size:.74rem}.download{border:1px solid rgba(212,175,106,.35);border-radius:9px;padding:8px 11px;color:var(--gold-light);font-size:.76rem;font-weight:700;white-space:nowrap}.download:hover{background:rgba(212,175,106,.1)}.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.stat{font-size:.72rem;color:#b8afa3;background:rgba(255,255,255,.04);border-radius:8px;padding:6px 9px}.foot{text-align:center;color:#716a62;font-size:.78rem;margin-top:35px}.foot b{background:linear-gradient(120deg,var(--gold-light),var(--gold));background-clip:text;-webkit-background-clip:text;color:transparent}.legal{font-size:.72rem;color:#776f65;text-align:center;margin:17px auto 0;max-width:660px}
+@media(max-width:620px){main{padding:45px 15px 55px}.nav{padding:0 15px}.nav-note{font-size:.72rem}.panel{padding:17px;border-radius:18px}.input-wrap{flex-direction:column}.link-tools{width:100%}.primary{padding:14px}.result-head{align-items:flex-start}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.media-row{gap:8px;padding:9px}.download{padding:8px}.hero p{font-size:.9rem}}
+
+/* Subtle motion polish across the whole page */
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softGlow{0%,100%{box-shadow:0 0 10px rgba(212,175,106,.12)}50%{box-shadow:0 0 18px rgba(212,175,106,.3)}}
+@keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.topbar{animation:fadeSlideIn .55s ease both}
+.brand img{transition:transform .35s,box-shadow .35s}.brand:hover img{transform:rotate(-5deg) scale(1.06);box-shadow:0 0 16px rgba(212,175,106,.2)}
+.hero .eyebrow,.hero h1,.hero p{animation:fadeSlideIn .65s ease both}.hero h1{animation-delay:.08s}.hero p{animation-delay:.16s}
+.dot{animation:softGlow 2.8s ease-in-out infinite}
+.platform{transition:transform .25s,border-color .25s,background .25s}.platform:hover{transform:translateY(-3px);border-color:rgba(212,175,106,.35);background:rgba(212,175,106,.09)}
+.panel{animation:fadeSlideIn .75s .12s ease both;transition:border-color .3s,box-shadow .3s}.panel:hover{border-color:rgba(212,175,106,.25);box-shadow:0 26px 75px rgba(0,0,0,.3)}
+.link-icon,.primary,.download{transition:transform .22s,filter .22s,background .22s,border-color .22s}.link-icon:hover,.download:hover{transform:translateY(-2px)}.link-icon:active,.primary:active,.download:active{transform:scale(.97)}
+.primary:hover{filter:brightness(1.09)}
+.thumb{transition:transform .35s,box-shadow .35s}.thumb:hover{transform:scale(1.035);box-shadow:0 0 18px rgba(212,175,106,.14)}
+.gallery-item{animation:fadeSlideIn .5s ease both;transition:transform .3s,border-color .3s,box-shadow .3s}.gallery-item:hover{transform:translateY(-4px);border-color:rgba(212,175,106,.4);box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.media-row{animation:fadeSlideIn .45s ease both;transition:border-color .25s,transform .25s}.media-row:hover{border-color:rgba(212,175,106,.25);transform:translateX(2px)}
+.media-icon{transition:transform .25s}.media-row:hover .media-icon{transform:scale(1.06)}
+.stat{transition:background .25s,transform .25s}.stat:hover{background:rgba(212,175,106,.1);transform:translateY(-2px)}
+.foot a b{transition:filter .25s}.foot a:hover b{filter:brightness(1.25)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Final additions: history, toast and about */
+.extra-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0 0}
+.secondary-btn{border:1px solid var(--line);background:rgba(212,175,106,.07);color:var(--gold-light);border-radius:10px;padding:9px 13px;font-size:.8rem;cursor:pointer;transition:.2s}
+.secondary-btn:hover{background:rgba(212,175,106,.15);transform:translateY(-1px)}
+.history-panel,.about-panel{display:none;margin-top:18px;padding:17px;border:1px solid var(--line);border-radius:16px;background:rgba(23,20,21,.9);animation:fadeSlideIn .35s ease both}
+.history-panel.show,.about-panel.show{display:block}
+.history-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.history-head h3,.about-panel h3{font-size:.95rem;margin:0}
+.history-list{display:grid;gap:8px}
+.history-item{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid rgba(255,255,255,.06);border-radius:10px}
+.history-item a{min-width:0;flex:1;overflow-wrap:anywhere;font-size:.78rem;color:#d9c9a6}
+.history-item button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:8px;padding:6px 8px;font-size:.72rem;cursor:pointer}
+.empty-history{font-size:.8rem;color:var(--muted);margin:0}.storage-info{font-size:.75rem;color:var(--muted);margin:0 0 12px}.storage-dashboard{border:1px solid rgba(212,175,106,.16);background:rgba(212,175,106,.045);border-radius:13px;padding:12px;margin:0 0 14px}.storage-total{display:flex;flex-direction:column;gap:2px}.storage-total strong{font-size:1.12rem;color:var(--gold-light)}.storage-total span,.storage-details span{font-size:.73rem;color:var(--muted)}.storage-details{display:flex;flex-direction:column;gap:4px;margin-top:7px}
+.about-panel p,.about-panel li{font-size:.8rem;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:20;padding:11px 16px;border:1px solid var(--line);border-radius:12px;background:#211d1e;color:var(--gold-light);font-size:.82rem;box-shadow:0 12px 35px rgba(0,0,0,.35);transition:opacity .25s,transform .25s;max-width:calc(100vw - 30px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:620px){.history-item{align-items:flex-start}.history-item button{flex-shrink:0}}
+
+</style>
+</head>
+<body>
+<header class="topbar"><nav class="nav"><a class="brand" href="https://bykaj.my.id" target="_blank" rel="noopener noreferrer"><img src="https://files.catbox.moe/31tzqx.png" alt="by KAJ"><span>by KAJ</span></a><button class="install-btn" id="installBtn" type="button" aria-label="Install aplikasi" title="Install aplikasi" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M5 17v3h14v-3"/></svg></button></nav></header>
+<main>
+<section class="hero">
+  <div class="eyebrow"><i class="dot"></i> TikTok media downloader</div>
+  <h1>TikTok Downloader <span>by KAJ</span></h1>
+  <p>Tempel tautan TikTok untuk melihat media yang tersedia dan opsi unduhnya.</p>
+  <div class="platforms"><span class="platform">TikTok Video</span><span class="platform">TikTok Photo</span></div>
+</section>
+<section class="panel">
+  <label class="field-label" for="url">Tempel tautan TikTok</label>
+  <form id="downloadForm">
+    <div class="input-wrap"><div class="link-tools"><input id="url" class="url-input" type="url" placeholder="https://www.tiktok.com/@username/video/..." required autocomplete="url"><button type="button" id="pasteBtn" class="link-icon" aria-label="Tempel tautan" title="Tempel" ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4.5h12a1.5 1.5 0 0 1 1.5 1.5v14H4.5v-14A1.5 1.5 0 0 1 6 4.5Z"/><path d="M9 3h6a1.5 1.5 0 0 1 1.5 1.5v2h-9v-2A1.5 1.5 0 0 1 9 3Z"/><path d="M8 11h8M8 15h8"/></svg></button><button type="button" id="clearBtn" class="link-icon" aria-label="Hapus tautan" title="Hapus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div><button id="submitBtn" class="primary" type="submit">Ambil Media&nbsp; ↗</button></div>
+  </form>
+  <p class="hint">Pastikan tautan dapat diakses secara publik. Hanya unduh konten yang boleh kamu gunakan.</p>
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <section id="result" class="result" aria-live="polite"></section>
+</section>
+<p class="legal">Downloader khusus TikTok. Hormati hak cipta dan privasi kreator.</p>
+<div class="extra-actions"><button class="secondary-btn" id="historyToggle" type="button">Riwayat link</button><button class="secondary-btn" id="aboutToggle" type="button">Tentang aplikasi</button></div>
+<section class="history-panel" id="historyPanel"><div class="history-head"><h3>Riwayat link</h3><button class="secondary-btn" id="clearHistory" type="button">Hapus riwayat</button></div><div class="storage-dashboard" id="storageDashboard">
+<div class="storage-total"><strong id="totalStorageUsed">Mengukur…</strong><span>Total storage terdeteksi</span></div>
+<div class="storage-details"><span id="historyStorageInfo">Menghitung riwayat…</span><span id="storageQuotaInfo">Kuota browser: menghitung…</span></div>
+</div><div class="history-list" id="historyList"></div></section>
+<section class="about-panel" id="aboutPanel"><h3>TikTok Downloader by KAJ</h3><p>Downloader media TikTok dengan antarmuka sederhana dan dukungan instalasi PWA pada browser yang kompatibel.</p><p><strong>Changelog</strong></p><ul><li>Versi final: tombol install PWA</li><li>Riwayat link tersimpan lokal di browser</li><li>Toast notifikasi dan panel informasi</li><li>Preview media dan pilihan unduhan</li></ul><p>Made with care by KAJ.</p></section>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="foot">Made with care <a href="https://bykaj.my.id" target="_blank" rel="noopener noreferrer"><b>by KAJ</b></a> · <span id="year"></span></div>
+</main>
+<script>
+const API_ENDPOINT = 'https://api.nexray.eu.cc/downloader/aio';
+const form = document.getElementById('downloadForm');
+const input = document.getElementById('url');
+const button = document.getElementById('submitBtn');
+const statusBox = document.getElementById('status');
+const resultBox = document.getElementById('result');
+const pasteBtn = document.getElementById('pasteBtn');
+const clearBtn = document.getElementById('clearBtn');
+function updatePasteVisibility(){ pasteBtn.classList.toggle('hidden', !!input.value.trim()); }
+input.addEventListener('input', updatePasteVisibility);
+clearBtn.addEventListener('click',()=>{input.value='';updatePasteVisibility();input.focus();});
+pasteBtn.addEventListener('click',async()=>{try{input.value=await navigator.clipboard.readText();updatePasteVisibility();input.focus();}catch{showStatus('Clipboard tidak dapat diakses. Tempel tautan secara manual.','error');}});
+updatePasteVisibility();
+
+// PWA install button
+const installBtn = document.getElementById('installBtn');
+let installPrompt = null;
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault(); installPrompt = event; installBtn.hidden = false;
+});
+installBtn.addEventListener('click', async () => {
+  if (installPrompt) { installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; installBtn.hidden = true; }
+  else { showStatus('Jika opsi instalasi tersedia, buka menu browser (⋮) lalu pilih Tambahkan ke layar utama / Install app.',''); }
+});
+window.addEventListener('appinstalled', () => { installBtn.hidden = true; showStatus('Aplikasi berhasil diinstal.','ok'); });
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+// Local link history, toast feedback and info panel
+const historyPanel=document.getElementById('historyPanel'), historyList=document.getElementById('historyList'), toastBox=document.getElementById('toast');
+let toastTimer;
+function toast(message){toastBox.textContent=message;toastBox.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastBox.classList.remove('show'),2600);}
+function getHistory(){try{return JSON.parse(localStorage.getItem('kajTikTokHistory')||'[]')}catch{return []}}
+function saveHistory(url,title='Link TikTok'){let items=getHistory();items=items.filter(x=>x.url!==url);items.unshift({url,title,date:Date.now()});try{localStorage.setItem('kajTikTokHistory',JSON.stringify(items))}catch{};renderHistory();}
+function renderHistory(){const items=getHistory();historyList.innerHTML=items.length?items.map((x,i)=>`<div class="history-item"><a href="#" data-history-url="${escapeHtml(x.url)}" title="${escapeHtml(x.url)}">${escapeHtml(x.title||x.url)}</a><button type="button" data-remove-history="${i}">Buka link</button></div>`).join(''):'<p class="empty-history">Belum ada link yang diproses.</p>';updateHistoryStorageInfo(items);}
+function formatStorageBytes(bytes){if(!Number.isFinite(bytes)||bytes<0)return 'Tidak tersedia';if(bytes<1024)return `${bytes} B`;if(bytes<1048576)return `${(bytes/1024).toFixed(2)} KB`;if(bytes<1073741824)return `${(bytes/1048576).toFixed(2)} MB`;return `${(bytes/1073741824).toFixed(2)} GB`;}
+async function updateHistoryStorageInfo(items=getHistory()){const historyEl=document.getElementById('historyStorageInfo'),totalEl=document.getElementById('totalStorageUsed'),quotaEl=document.getElementById('storageQuotaInfo');if(!historyEl)return;let bytes=0;try{bytes=new Blob([JSON.stringify(items)]).size;}catch{bytes=JSON.stringify(items).length*2;}historyEl.textContent=`${items.length} link • Riwayat: ${formatStorageBytes(bytes)} (perkiraan)`;if(navigator.storage&&navigator.storage.estimate){try{const estimate=await navigator.storage.estimate();totalEl.textContent=formatStorageBytes(estimate.usage||0);quotaEl.textContent=`Kuota browser (estimasi): ${formatStorageBytes(estimate.quota||0)}`;}catch{totalEl.textContent='Tidak tersedia';quotaEl.textContent='Kuota browser: tidak tersedia';}}else{totalEl.textContent='Tidak tersedia';quotaEl.textContent='Kuota browser: browser tidak mendukung estimasi';}}
+document.getElementById('historyToggle').addEventListener('click',()=>{historyPanel.classList.toggle('show');renderHistory();});
+document.getElementById('aboutToggle').addEventListener('click',()=>document.getElementById('aboutPanel').classList.toggle('show'));
+document.getElementById('clearHistory').addEventListener('click',()=>{localStorage.removeItem('kajTikTokHistory');renderHistory();toast('Riwayat dihapus');});
+historyList.addEventListener('click',e=>{const btn=e.target.closest('[data-remove-history]');const a=e.target.closest('[data-history-url]');if(btn){const items=getHistory();const i=Number(btn.dataset.removeHistory);const item=items[i];if(item){input.value=item.url;updatePasteVisibility();input.focus();toast('Link dimasukkan ke kolom');}return;}if(a){e.preventDefault();input.value=a.dataset.historyUrl;updatePasteVisibility();input.focus();toast('Link dimasukkan ke kolom');}});
+renderHistory();
+
+
+function showStatus(message, type='') {
+  statusBox.textContent = message;
+  statusBox.className = 'status show' + (type ? ' ' + type : '');
+  toast(message);
+}
+function safeUrl(value) {
+  try { const u = new URL(value); return ['http:','https:'].includes(u.protocol) ? u.href : ''; }
+  catch { return ''; }
+}
+function formatDuration(seconds) {
+  if (!seconds || !Number.isFinite(Number(seconds))) return '';
+  const n = Math.floor(Number(seconds));
+  return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;
+}
+function formatBytes(bytes) {
+  const n = Number(bytes);
+  if (!n) return '';
+  return n >= 1048576 ? (n/1048576).toFixed(1)+' MB' : (n/1024).toFixed(0)+' KB';
+}
+function escapeHtml(value='') {
+  return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function mediaLink(url, label, filename) {
+  const href = safeUrl(url);
+  if (!href) return '';
+  return `<a class="download" href="${escapeHtml(href)}" rel="noopener noreferrer" data-download-name="${escapeHtml(filename || 'bykaj-media')}">${escapeHtml(label)}</a>`;
+}
+function renderResult(payload) {
+  const data = payload?.result;
+  if (!payload?.status || !data || data.error) throw new Error(data?.message || 'Konten tidak ditemukan atau tidak dapat diproses.');
+  const medias = Array.isArray(data.medias) ? data.medias : [];
+  if (!medias.length) throw new Error('API tidak mengembalikan file media untuk tautan ini.');
+  const imageItems = medias.filter(m => m.type === 'image' && safeUrl(m.url));
+  const videoItems = medias.filter(m => m.type === 'video' && safeUrl(m.url));
+  const audioItems = medias.filter(m => m.type === 'audio' && safeUrl(m.url));
+  const thumbnail = safeUrl(data.thumbnail);
+  const source = escapeHtml(data.source || 'Media');
+  const author = escapeHtml(data.author || data.unique_id || 'Unknown creator');
+  const title = escapeHtml(data.title || 'Media berhasil ditemukan');
+  let html = `<div class="result-head">${thumbnail ? `<img class="thumb" src="${escapeHtml(thumbnail)}" alt="Thumbnail konten">` : `<div class="thumb"></div>`}<div class="meta"><span class="source">${source} • READY</span><h2>${title}</h2><p>@${author}${data.duration ? ' · '+formatDuration(data.duration) : ''}</p></div></div>`;
+  if (videoItems.length) {
+    const first = videoItems[0];
+    html += `<h3 class="media-title">Preview video</h3><video class="preview-video" controls playsinline preload="metadata" poster="${thumbnail ? escapeHtml(thumbnail) : ''}" src="${escapeHtml(safeUrl(first.url))}"></video>`;
+  }
+  if (imageItems.length) {
+    html += `<h3 class="media-title">Preview foto (${imageItems.length})</h3><div class="gallery">`;
+    imageItems.forEach((m,i) => { const u=safeUrl(m.url); const resolution=m.width&&m.height?`${m.width} × ${m.height}`:''; html += `<div class="gallery-item"><img src="${escapeHtml(u)}" alt="Foto ${i+1}" loading="lazy"><div style="position:absolute;top:6px;left:6px;background:rgba(12,10,10,.86);color:var(--gold-light);font-size:.68rem;padding:4px 6px;border-radius:6px">${resolution?escapeHtml(resolution):''}</div>${mediaLink(u,'Unduh foto',`bykaj-foto-${i+1}.${m.extension||'jpg'}`)}</div>`; });
+    html += `</div>`;
+  }
+  const downloadable = [...videoItems,...audioItems];
+  if (downloadable.length) {
+    html += `<h3 class="media-title">Pilihan unduhan</h3><div class="media-list">`;
+    downloadable.forEach((m,i) => {
+      const isAudio = m.type === 'audio';
+      const qualityRaw = String(m.quality || (isAudio?'Audio':'Video')).replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+      const quality = escapeHtml(qualityRaw);
+      const ext = escapeHtml(m.extension || (isAudio?'mp3':'mp4'));
+      const size = formatBytes(m.data_size);
+      const displayName = isAudio?'Audio MP3':(qualityRaw.toLowerCase().includes('watermark')?qualityRaw: `Video ${qualityRaw}`);
+      html += `<div class="media-row"><div class="media-icon">${isAudio?'♫':'▶'}</div><div class="media-info"><strong>${escapeHtml(displayName)}</strong><small>${ext.toUpperCase()}${size?' · '+size:''}${m.width&&m.height?' · '+m.width+'×'+m.height:''}</small></div>${mediaLink(m.url,'Unduh',`bykaj-${isAudio?'audio':'video'}-${i+1}.${ext}`)}</div>`;
+    });
+    html += `</div>`;
+  }
+  if (data.statistics) {
+    const s=data.statistics;
+    const stats=[['Views',s.play_count],['Likes',s.digg_count],['Komentar',s.comment_count],['Dibagikan',s.share_count]].filter(x=>x[1]!=null);
+    if(stats.length) html += `<div class="stats">${stats.map(x=>`<span class="stat">${x[0]}: ${Number(x[1]).toLocaleString('id-ID')}</span>`).join('')}</div>`;
+  }
+  resultBox.innerHTML = html;
+  resultBox.classList.add('show');
+}
+resultBox.addEventListener('click',async event=>{const link=event.target.closest('a.download');if(!link)return;event.preventDefault();const href=safeUrl(link.href);if(!href)return;const name=link.dataset.downloadName||'bykaj-media';link.textContent='Mengunduh…';try{const res=await fetch(href);if(!res.ok)throw new Error('Download gagal');const blob=await res.blob();const obj=URL.createObjectURL(blob);const a=document.createElement('a');a.href=obj;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(obj),1500);link.textContent='Download dimulai ✓';}catch{link.textContent='Unduh';showStatus('Server media membatasi unduhan langsung dari browser (CORS).','error');} });
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  const url = safeUrl(input.value.trim());
+  if (!url) { showStatus('Masukkan tautan http/https yang valid.', 'error'); return; }
+  button.disabled = true;
+  button.innerHTML = '<span class="loader"></span>Memproses';
+  resultBox.classList.remove('show');
+  resultBox.innerHTML = '';
+  showStatus('Sedang mengambil informasi media dari API…');
+  try {
+    const endpoint = `${API_ENDPOINT}?url=${encodeURIComponent(url)}`;
+    const response = await fetch(endpoint, {method:'GET', headers:{'Accept':'application/json'}});
+    if (!response.ok) throw new Error(`Server API merespons HTTP ${response.status}.`);
+    const payload = await response.json();
+    renderResult(payload);
+    saveHistory(url, (payload?.result?.title || 'Link TikTok').slice(0,90));
+    showStatus('Media berhasil ditemukan. Pilih preview atau unduhan yang tersedia.', 'ok');
+    resultBox.scrollIntoView({behavior:'smooth',block:'nearest'});
+  } catch (error) {
+    const message = error instanceof TypeError
+      ? 'Tidak dapat menghubungi API. Bisa jadi server membatasi akses browser (CORS) atau koneksi sedang bermasalah. Coba lagi nanti.'
+      : (error.message || 'Terjadi kesalahan saat memproses tautan.');
+    showStatus(message, 'error');
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Ambil Media ↗';
+  }
+});
+</script>
+</body>
+</html>

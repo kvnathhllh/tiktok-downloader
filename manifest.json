@@ -1,0 +1,16 @@
+{
+  "name": "TikTok Downloader by KAJ",
+  "short_name": "KAJ Downloader",
+  "description": "TikTok media downloader by KAJ",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0e0c0d",
+  "theme_color": "#0e0c0d",
+  "icons": [{
+    "src": "https://files.catbox.moe/31tzqx.png",
+    "sizes": "192x192 512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }]
+}
