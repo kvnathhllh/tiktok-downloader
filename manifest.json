@@ -1,6 +1,6 @@
 {
   "name": "TikTok Downloader by KAJ",
-  "short_name": "KAJ Downloader",
+  "short_name": "TikTok Downloader",
   "description": "TikTok media downloader by KAJ",
   "start_url": "./",
   "scope": "./",
